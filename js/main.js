@@ -16,7 +16,7 @@ function getProducts(query) {
     // Borra productos previos
     productListElement.innerHTML = ''
 
-    fetch(`http://localhost:3000/api/v1/product?${query}`)
+    fetch(`https://node-api-bsale.herokuapp.com/api/v1/product?${query}`)
         .then(res => res.json())
         .then(res => {
             console.log(res)
@@ -45,7 +45,7 @@ function getProducts(query) {
 
 // Obtiene categorias para el filter
 function getCategories() {
-    fetch('http://localhost:3000/api/v1/category')
+    fetch('https://node-api-bsale.herokuapp.com/api/v1/category')
         .then(res => res.json())
         .then(res => {
             console.log(res)
