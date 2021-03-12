@@ -1,0 +1,173 @@
+/* 
+    Para no repetir tanto codigo CSS, uso el patron de diseño de utilidades CSS similar al que se usa en tailwind, 
+    creando utilidades a medida que las necesito.
+*/
+
+header {
+    position: sticky;
+
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    padding: 5px;
+}
+
+header .title {
+    font-size: 2em;
+    padding: 4px;
+}
+
+
+.product-list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+@media (min-width: 640px) {
+    .product-list {
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    @media (min-width: 768px) {
+        .product-list {
+            grid-template-columns: 25% 25% 25% 25%;
+        }
+    }
+}
+
+
+.product {
+    box-shadow: -1px 1px 24px -16px;
+    border-radius: 1.125rem;
+}
+
+#search {
+    color: rgb(65, 65, 65)
+}
+
+.sort {
+    height: 10px;
+    transform: rotate(90deg);
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.current-page {
+    font-weight: bold;
+}
+
+
+/* Utility CSS */
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.h-full {
+    height: 100%
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.m-10 {
+    margin: 10px
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.py-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.px-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.p-10 {
+    padding: 10px
+}
+
+
+.border-top {
+    border-top: 1px solid rgb(217 217 217)
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}

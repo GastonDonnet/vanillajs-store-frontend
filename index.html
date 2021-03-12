@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bsale Store</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/config.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+
+    <header class="flex flex-row items-center">
+        <h1 class="title">Bsale</h1>
+        <input class="ml-auto p-10" type="text" id="search" placeholder="Buscar Producto">
+        <a href="#" class="m-10">
+            <img src="./assets/icons/magnifiying-glass.svg" style="height: 25px;" />
+        </a>
+        <a href="#" class="mr-10">
+            <img src="./assets/icons/shopping-cart.svg" style="height: 30px;" />
+        </a>
+    </header>
+
+
+    <div class="mx-auto mt-20 container">
+
+        <div class="flex flex-row w-full">
+            <div class="m-10">
+                <span style="font-weight: 500;">Categoría</span>
+                <select class="pointer" name="categories" id="category-list">
+                    <option value="0">-</option>
+                </select>
+            </div>
+            <div class="mr-10 ml-auto flex flex-row items-center pointer" id="price-sort">
+                <span>Precio</span>
+                <img src="./assets/icons/flecha.svg" class="px-10 sort" style="visibility: hidden" />
+            </div>
+        </div>
+
+
+
+        <div class="product-list" style="width: 100%">
+            <!-- Products -->
+        </div>
+
+        <div class="flex flex-row pages items-center justify-center pagination">
+            <!--Pages-->
+        </div>
+    </div>
+
+    <script src="js/query.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
