@@ -27,7 +27,7 @@ const productQuery = new Query(getProducts)
 // Loading reactivo que agrega o saca el "loading element" del DOM segun su valor de "value"
 const productsLoading = new Proxy({}, {
     set: (obj, prop, value) => {
-        console.log(obj, prop, value)
+        // console.log(obj, prop, value)
         if (prop == 'value') {
             if (value == true) {
                 productLoaderElement.style = 'display: flex;'
@@ -49,7 +49,7 @@ function getProducts(query) {
     fetch(`https://node-api-bsale.herokuapp.com/api/v1/product?${query}`)
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+            // console.log(res)
             products = res
             for (product of res.products) {
                 const {
@@ -81,7 +81,7 @@ function getCategories() {
     fetch('https://node-api-bsale.herokuapp.com/api/v1/category')
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+            // console.log(res)
 
             for (category of res.categories) {
                 const {
@@ -106,7 +106,7 @@ function createPagination() {
     paginationElement.innerHTML = ''
 
     totalPages = Math.round(products.total / itemsPerPage)
-    console.log(products, itemsPerPage)
+    // console.log(products, itemsPerPage)
 
     let i = 1
     while (i <= totalPages) {
@@ -189,7 +189,7 @@ sortByPriceElement.addEventListener('click', () => {
         arrow.style.visibility = 'visible'
     }
 
-    console.log(sort)
+    // console.log(sort)
     productQuery.sort(sort).execute()
 })
 
