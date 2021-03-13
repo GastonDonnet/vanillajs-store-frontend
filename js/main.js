@@ -156,7 +156,9 @@ categoryListElement.addEventListener('change', (event) => {
 })
 
 // Buscador
-searchElement.addEventListener('change', (event) => {
+searchElement.addEventListener('input', debounce((event) => {
+    console.log(event)
+
     currentPage = 1
     searchText = event.target.value
 
@@ -166,12 +168,12 @@ searchElement.addEventListener('change', (event) => {
     }
 
     productQuery.filter(['name', searchText]).execute()
-})
+}, 800))
 
 // Sort by Price
 sortByPriceElement.addEventListener('click', () => {
     arrow = sortByPriceElement.children[1]
-    console.log(priceSort)
+    // console.log(priceSort)
     let sort = null
 
     if (priceSort == 'asc') {
