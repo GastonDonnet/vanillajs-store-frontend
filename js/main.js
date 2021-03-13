@@ -3,14 +3,25 @@ const categoryListElement = document.querySelector('#category-list');
 const searchElement = document.querySelector('#search');
 const sortByPriceElement = document.querySelector('#price-sort');
 const paginationElement = document.querySelector('.pagination')
+
+// Valor actual del price sort
 let priceSort = ''
+
+// Pagina actual
 let currentPage = 1
+
+// Productos x pagina (podria dar opcion al usuario de elegir cuantos se quiere mostrar)
 const itemsPerPage = 10
+
+// Variables que almacenan productos y categorias para ser usadas en otras funciones
 const categories = {}
 let products = {}
+
+// Instancia clase Query que es usada para armar la query del producto.
 const productQuery = new Query(getProducts)
 
 
+//// Funciones
 // Obtiene productos
 function getProducts(query) {
     // Borra productos previos
