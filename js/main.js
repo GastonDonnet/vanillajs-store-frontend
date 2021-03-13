@@ -1,8 +1,10 @@
+// Elementos del DOM que son modificados
 const productListElement = document.querySelector('.product-list');
 const categoryListElement = document.querySelector('#category-list');
 const searchElement = document.querySelector('#search');
 const sortByPriceElement = document.querySelector('#price-sort');
 const paginationElement = document.querySelector('.pagination')
+const productLoaderElement = document.querySelector('#product-loader')
 
 // Valor actual del price sort
 let priceSort = ''
@@ -21,9 +23,26 @@ let products = {}
 const productQuery = new Query(getProducts)
 
 
+//// Objects
+// Loading reactivo que agrega o saca el "loading element" del DOM segun su valor de "value"
+const productsLoading = new Proxy({}, {
+    set: (obj, prop, value) => {
+        console.log(obj, prop, value)
+        if (prop == 'value') {
+            if (value == true) {
+                productLoaderElement.style = 'display: flex;'
+            } else if (value == false) {
+                productLoaderElement.style = 'display: none;'
+            }
+        }
+    }
+})
+
+
 //// Funciones
 // Obtiene productos
 function getProducts(query) {
+    productsLoading.value = true
     // Borra productos previos
     productListElement.innerHTML = ''
 
@@ -49,9 +68,12 @@ function getProducts(query) {
 
                 productListElement.appendChild(productElement)
             }
-        }).catch(error => {}).finally(() => createPagination())
-
-
+        })
+        .catch(error => {})
+        .finally(() => {
+            createPagination()
+            productsLoading.value = false
+        })
 }
 
 // Obtiene categorias para el filter
@@ -170,7 +192,6 @@ sortByPriceElement.addEventListener('click', () => {
     console.log(sort)
     productQuery.sort(sort).execute()
 })
-
 
 // Inicial
 getProducts("page=1")
